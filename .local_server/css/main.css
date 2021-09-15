@@ -16,13 +16,15 @@ header.menu div.menu-container nav i.search { position: absolute; right: 10px; t
 
 header.menu div.menu-container nav a.nav-item { font-family: Helvetica, Arial, Sans-Serif; font-size: 17px; line-height: 70px; text-transform: uppercase; text-decoration: none; white-space: nowrap; border-bottom: 1px solid transparent; color: #FFF; margin-right: 20px; }
 
-header.menu div.search-container { position: absolute; background-color: white; z-index: 20; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 100%; padding: 5px; background-color: white; border-bottom: 1px solid #CCC; display: none; }
+header.menu div.search-container { position: relative; background-color: white; z-index: 20; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 100%; background-color: white; max-height: 0; overflow: hidden; -webkit-transition: max-height 0.15s ease-out; transition: max-height 0.15s ease-out; }
 
-header.menu div.search-container.showing { display: block; }
+header.menu div.search-container.showing { display: block; max-height: 700px; overflow: auto; padding: 5px; -webkit-transition: max-height 0.25s ease-in; transition: max-height 0.25s ease-in; }
 
-header.menu div.search-container input[type='text'] { min-width: 100%; font-size: 36px; line-height: 50px; border: 1px solid #CCC; padding: 0 10px; }
+header.menu div.search-container input[type='text'] { min-width: 100%; font-size: 36px; line-height: 50px; border: 1px solid #CCC; padding: 0 10px; position: sticky; top: 0; }
 
-header.menu div.search-container i.close { position: absolute; right: 10px; top: 5px; font-size: 36px; line-height: 50px; }
+header.menu div.search-container a { position: sticky; top: 24px; }
+
+header.menu div.search-container a i.close { position: absolute; right: 10px; font-size: 36px; line-height: 50px; }
 
 header.menu div.search-container .results .overflow { display: inline-block; font-family: Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 600; margin-top: 10px; text-transform: uppercase; }
 

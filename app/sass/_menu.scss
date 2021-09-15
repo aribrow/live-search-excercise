@@ -65,16 +65,23 @@ header.menu {
     }
 
     div.search-container {
-        position: absolute;
+        position: relative;
         background-color: white;
         z-index: 20;
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
         width: 100%;
-        padding: 5px;
         background-color: white;
-        border-bottom: 1px solid #CCC;
-        display: none;
-        &.showing { display: block; }
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.15s ease-out;
+
+        &.showing { 
+            display: block;
+            max-height: 700px;
+            overflow: auto;
+            padding: 5px;             
+            transition: max-height 0.25s ease-in;
+        }
         
         input[type='text'] {
             min-width: 100%;
@@ -82,14 +89,20 @@ header.menu {
             line-height: $lineHeightForSearch;
             border: 1px solid #CCC;
             padding: 0 10px;
+            position: sticky;
+            top: 0;
         }
 
-        i.close {
-            position: absolute;
-            right: 10px;
-            top: 5px;
-            font-size: 36px;
-            line-height: $lineHeightForSearch;
+        a {
+            position: sticky;
+            top: 24px;
+
+            i.close {
+                position: absolute;
+                right: 10px;                
+                font-size: 36px;
+                line-height: $lineHeightForSearch;
+            }
         }
 
         .results {
