@@ -64,21 +64,17 @@ class Menu extends React.Component {
                         });
 
                         if (aResults.length > 0) {                            
-                            if (sQuery.length > 0) {
-                                let iResultsLength = aResults.length;
+                            let iResultsLength = aResults.length;
 
-                                if (aResults.length > 4) {
-                                    iResultsLength = 4;
-                                    $overflow.querySelector("span").innerText = `Displaying 4 of ${aResults.length} results.`;
-                                    $overflow.classList.remove("hidden");
-                                } else {
-                                    $overflow.classList.add("hidden");
-                                }
-
-                                _self.buildSearchResults(aResults, iResultsLength);
+                            if (aResults.length > 4) {
+                                iResultsLength = 4;
+                                $overflow.querySelector("span").innerText = `Displaying 4 of ${aResults.length} results.`;
+                                $overflow.classList.remove("hidden");
                             } else {
                                 $overflow.classList.add("hidden");
                             }
+
+                            _self.buildSearchResults(aResults, iResultsLength);
                         }
                     } catch (error) {
                         console.error(error);
